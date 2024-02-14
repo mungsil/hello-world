@@ -57,9 +57,11 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACTION_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_ACTION_SECRET_ACCESS_KEY }}
-          application_name: breifing-dev
-          environment_name: Breifing-dev-env
-          version_label: github-action-${{ steps.current-time.outputs.formattedTime }}
-          region: ap-northeast-1
+          application_name: test-dev
+          environment_name: Test-dev-env
+          version_label: github-action-${{ steps.current-time.outputs.formattedTime }} #타임스탬프
+          region: ap-northeast-2
           deployment_package: deploy/deploy.zip
           wait_for_deployment: false
+          #wait_for_environment_recovery: 60 -> 버전 때문에 꼬이는 경우가 많아서 생략
+
